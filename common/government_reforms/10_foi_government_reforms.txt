@@ -1,0 +1,1349 @@
+############################################
+######Byzantine Sphere Reforms##############
+############################################
+byzantine_empire_in_decline = { #prior to civil war
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "rioting_burning_2"
+	potential = {
+		OR = {
+			AND = {
+				tag = BYZ
+				has_global_flag = byzantine_empire_in_decline_flag
+				NOT = { map_setup = map_setup_random }
+			}
+			AND = {
+				was_tag = BYZ
+				has_global_flag = byzantine_empire_in_decline_flag
+				NOT = { map_setup = map_setup_random }
+			}
+		}
+	}
+	modifiers = {
+		land_forcelimit_modifier = -0.25
+		naval_forcelimit_modifier = -0.25
+		manpower_recovery_speed = -0.25
+		sailors_recovery_speed = -0.25
+		global_autonomy = 0.15
+		global_unrest = 2
+		range = -1
+		fabricate_claims_cost = 4
+		diplomatic_reputation = -4
+		global_missionary_strength = -0.04
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+}
+
+byzantine_government = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "foi_byzantine_emperor_icon"
+	potential = {
+		OR = {
+			AND = {
+				tag = BYZ
+				NOT = { has_global_flag = byzantine_empire_in_decline_flag }
+				NOT = { map_setup = map_setup_random }
+			}
+			AND = {
+				was_tag = BYZ
+				NOT = { has_global_flag = byzantine_empire_in_decline_flag }
+				NOT = { map_setup = map_setup_random }
+			}
+		}
+	}
+
+	fixed_rank = 3
+
+	modifiers = {
+		unjustified_demands = -0.1
+		governing_capacity = 250
+		global_autonomy = -0.1
+		max_absolutism = 10
+		legitimacy = 1
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+}
+
+roman_empire_government = {
+	icon = "foi_roman_empire_icon"
+	allow_normal_conversion = yes
+	potential = {
+		AND = {
+			tag = ROM
+			NOT = { map_setup = map_setup_random }
+		}
+	}
+	lock_level_when_selected = yes
+	legacy_equivalent = feudal_monarchy
+
+	modifiers = {
+		tolerance_own = 1
+		governing_capacity = 150
+	}
+
+	assimilation_cultures = {
+		altaic = {
+			artillery_cost = -0.1
+		}
+		baltic = {
+			naval_forcelimit_modifier = 0.05
+		}
+		british = {
+			ship_durability = 0.05
+		}
+		burman = {
+			free_leader_pool = 1
+		}
+		byzantine = {
+			legitimacy = 0.25
+		}
+		carpathian = {
+			mercenary_cost = -0.1
+		}
+		caucasian = {
+			mercenary_discipline = 0.05
+		}
+		gaelic = {
+			shock_damage = 0.05
+		}
+		central_indic = {
+			land_attrition = -0.1
+		}
+		east_asian = {
+			state_maintenance_modifier = -0.2
+		}
+		kongo_group = {
+			heir_chance = 0.5
+		}
+		cushitic = {
+			missionaries = 1
+		}
+		dravidian = {
+			global_trade_goods_size_modifier = 0.05
+		}
+		african = {
+			global_tax_income = 10
+		}
+		east_slavic = {
+			land_forcelimit_modifier = 0.1
+		}
+		eastern_aryan = {
+			production_efficiency = 0.05
+		}
+		evenks = {
+			cavalry_flanking = 0.2
+		}
+		french = {
+			diplomats = 1
+		}
+		germanic = {
+			global_institution_spread = 0.15
+		}
+		great_lakes_group = {
+			loot_amount = 0.5
+		}
+		hindusthani = {
+			core_creation = -0.1
+		}
+		iberian = {
+			global_colonial_growth = 10
+		}
+		iranian = {
+			advisor_cost = -0.1
+		}
+		japanese_g = {
+			land_morale = 0.1
+		}
+		kamchatkan_g = {
+			hostile_attrition = 1
+		}
+		korean_g = {
+			idea_cost = -0.05
+		}
+		latin = {
+			embracement_cost = -0.1
+		}
+		lost_cultures_group = {
+			discipline = 0.05
+		}
+		levantine = {
+			ae_impact = -0.05
+		}
+		turko_semitic = {
+			cavalry_power = 0.1
+		}
+		maghrebi = {
+			privateer_efficiency = 0.25
+		}
+		malay = {
+			merchants = 1
+		}
+		mande = {
+			tolerance_heretic = 1
+		}
+		pacific = {
+			global_sailors_modifier = 0.1
+		}
+		sahelian = {
+			movement_speed = 0.1
+		}
+		scandinavian = {
+			mil_advisor_cost = -0.1
+		}
+		southeastasian_group = {
+			development_cost = -0.05
+		}
+		south_slavic = {
+			warscore_cost_vs_other_religion = -0.1
+		}
+		southern_african = {
+			inflation_reduction = 0.05
+		}
+		sudanese = {
+			caravan_power = 0.1
+		}
+		tartar = {
+			cavalry_cost = -0.15
+		}
+		thai_group = {
+			build_cost = -0.05
+		}
+		tibetan_group = {
+			prestige_per_development_from_conversion = 0.5
+		}
+		finno_ugric = {
+			prestige_decay = -0.01
+		}
+		west_african = {
+			global_autonomy = -0.01
+		}
+		west_slavic = {
+			leader_land_fire = 1
+		}
+		western_aryan = {
+			trade_efficiency = 0.05
+		}
+	}
+}
+
+roman_senate_government = {
+	icon = "foi_byzantine_senate_icon"
+	allow_normal_conversion = no
+	potential = {
+		has_dlc = "Common Sense"
+		OR = {
+			tag = BYZ
+			was_tag = BYZ
+		}
+	}
+	lock_level_when_selected = yes
+	modifiers = {
+		global_unrest = -1
+		nobles_loyalty_modifier = -0.1
+		burghers_influence_modifier = 0.1
+		burghers_loyalty_modifier = 0.05
+	}
+
+	conditional = {
+		allow = {
+			has_dlc = "Common Sense"
+		}
+		has_parliament = yes
+	}
+}
+
+rum_government = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "foi_foi_rum_empire_icon"
+	potential = {
+		religion = nestorian
+		OR = {
+			#AND = {
+			#	tag = TUR
+			#	NOT = { map_setup = map_setup_random }
+			#}
+			AND = {
+				tag = RUM
+				NOT = { map_setup = map_setup_random }
+			}
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = rum_government
+			}
+		}
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 20
+	nation_designer_trigger = {
+		religion = nestorian
+		primary_culture = turkish
+	}
+	legacy_equivalent = rum_government_legacy
+	maintain_dynasty = yes
+	modifiers = {
+		unjustified_demands = -0.1
+		legitimacy = 0.5
+		max_absolutism = 5
+		governing_capacity = 150
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+
+	conditional = {
+		allow = { has_dlc = "Mandate of Heaven" }
+		allow_banners = yes
+	}
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		has_harem = yes
+	}
+}
+
+cuman_confederation = {
+    icon = "foi_cuman_confederation_icon"
+    allow_normal_conversion = no
+	lock_level_when_selected = yes
+    potential = {
+        OR = {
+            AND = {
+                tag = CUM
+                NOT = { map_setup = map_setup_random }
+            }
+            AND = {
+                is_playing_custom_nation = yes
+                have_had_reform = cuman_confederation
+            }
+        }
+    }
+    legacy_equivalent = cuman_confederation_legacy
+    valid_for_nation_designer = yes
+    nation_designer_cost = 40
+    royal_marriage = yes
+    nation_designer_trigger = {
+        has_dlc = "Res Publica"
+    }
+
+	modifiers = {
+		cavalry_cost = -0.25
+		cav_to_inf_ratio = 0.125
+		governing_capacity = 50
+		max_absolutism = 10
+	}
+
+    removed_effect = {
+        if = {
+            # Monarchs seize power
+            limit = { government = monarchy }
+            country_event = { id = dutch_republic.33 }
+        }
+    }
+
+    custom_attributes = {
+        enables_plutocratic_idea_group = yes
+        enables_aristocratic_idea_group = no
+    }
+    conditional = {
+        allow = {
+            has_dlc = "Res Publica"
+        }
+
+        states_general_mechanic = {
+            cuman_confederation_confederationists = {
+				caravan_power = 0.25
+				state_maintenance_modifier = -0.2
+				republican_tradition = 1
+            }
+
+            cuman_confederation_feudalists = {
+				global_manpower_modifier = 0.2
+				global_autonomy = -0.05
+				republican_tradition = -1
+            }
+        }
+    }
+    duration = 12
+}
+
+cum_claim_reform = {
+	icon = "horde_riding"
+	allow_normal_conversion = yes
+	potential = {
+		has_country_flag = cum_claim_reform_flag
+	}
+
+	modifiers = {
+		global_autonomy = -0.05
+	}
+	
+	custom_attributes = {
+		claim_states = yes
+	}
+}
+
+cuman_cultural_integration_reform = {
+	icon = "equal_electorate_reform"
+	allow_normal_conversion = yes
+	potential = {
+		has_country_flag = cuman_cultural_mission_flag
+	}
+	lock_level_when_selected = yes
+
+	modifiers = {
+		governing_capacity = 250
+	}
+
+	assimilation_cultures = {
+		altaic = { }
+		baltic = { }
+		british = { }
+		burman = { }
+		byzantine = { }
+		carpathian = { }
+		caucasian = { }
+		gaelic = { }
+		central_indic = { }
+		east_asian = { }
+		kongo_group = { }
+		cushitic = { }
+		dravidian = { }
+		african = { }
+		east_slavic = { }
+		eastern_aryan = { }
+		evenks = { }
+		french = { }
+		germanic = { }
+		great_lakes_group = { }
+		hindusthani = { }
+		iberian = { }
+		iranian = { }
+		japanese_g = { }
+		kamchatkan_g = { }
+		korean_g = { }
+		latin = { }
+		lost_cultures_group = { }
+		levantine = { }
+		turko_semitic = { }
+		maghrebi = { }
+		malay = { }
+		mande = { }
+		pacific = { }
+		sahelian = { }
+		scandinavian = { }
+		southeastasian_group = { }
+		south_slavic = { }
+		southern_african = { }
+		sudanese = { }
+		tartar = { }
+		thai_group = { }
+		tibetan_group = { }
+		finno_ugric = { }
+		west_african = { }
+		west_slavic = { }
+		western_aryan = { }
+	}
+}
+
+armenian_monarchy_reform = {
+	icon = "foi_armenian_monarchy_icon"
+	legacy_equivalent = armenian_monarchy_reform_legacy
+	allow_normal_conversion = no
+	lock_level_when_selected = yes
+	monarchy = yes
+	valid_for_nation_designer = yes
+	valid_for_new_country = yes
+	nation_designer_cost = 100
+	nation_designer_trigger = {
+		OR = {
+			primary_culture = armenian
+			primary_culture = western_armenian
+		}
+	}
+	potential = {
+		OR = {
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = armenian_monarchy_reform
+			}
+			AND = {
+				government_rank = 2
+				OR = {
+					is_subject = no
+					tag = VAN
+				}
+				OR = {
+					primary_culture = armenian
+					primary_culture = western_armenian
+				}
+			}
+		}
+	}
+	modifiers = {
+		culture_conversion_cost = -0.25
+		yearly_corruption = -0.1
+		tolerance_own = 2
+		land_morale = 0.1
+	}
+	ai = {
+		factor = 0
+	}	
+}
+
+trinakrian_republic = {
+	icon = "foi_trinakrian_republic_icon"
+	allow_normal_conversion = no
+	modifiers = {
+		max_absolutism = -10
+		merchants = 1
+	}
+	valid_for_nation_designer = yes
+	lock_level_when_selected = yes
+	nation_designer_cost = 40
+	legacy_equivalent = merchant_republic
+	potential = {
+		OR = {
+			tag = TRK
+			was_tag = TRK
+		}
+	}
+	royal_marriage = yes
+	boost_income = yes
+	has_term_election = no
+	factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			NOT = { has_dlc = "Mare Nostrum" }
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+			NOT = { has_dlc = "Res Publica" }
+		}
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+		custom_attributes = {
+			disables_nobility = yes
+			blocked_call_diet = yes
+		}
+	}
+	custom_attributes = {
+		election_on_death = yes
+		lottery_election = yes
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+		is_merchant_republic = yes
+		
+	}
+	ai = {
+		factor = 100
+	}
+}
+
+############################################
+######Egyptian Reforms######################
+############################################
+egyptian_monarchy_reform = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "foi_egyptian_monarchy_icon"
+	potential = {
+		tag = EGY
+		NOT = {
+			has_country_flag = egy_khemia_kingdom_restored_flag
+			has_country_flag = egy_helleno_egypt_restored_flag
+		}
+	}
+	modifiers = {
+		unjustified_demands = -0.1
+		production_efficiency = 0.2
+		church_loyalty_modifier = 0.05
+		nobles_loyalty_modifier = 0.05
+		governing_capacity = 50
+	}
+	ai = {
+		factor = 0.5 #generic
+	}
+}
+
+khemean_monarchy_reform = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "foi_khemean_monarchy_icon"
+	potential = {
+		tag = EGY
+		has_country_flag = egy_khemia_kingdom_restored_flag
+		NOT = {
+			has_country_flag = egy_helleno_egypt_restored_flag	
+		}
+	}
+	modifiers = {
+		tolerance_own = 2
+		global_unrest = 4
+		num_accepted_cultures = -4
+		max_absolutism = 10
+		monarch_military_power = 2
+		nobles_loyalty_modifier = 0.1
+	}
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		militarised_society = yes
+	}
+	ai = {
+		factor = 0.5 #generic
+	}
+}
+
+helleno_egyptian_monarchy_reform = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "foi_helleno_egyptian_monarchy_icon"
+	potential = {
+		tag = EGY
+		has_country_flag = egy_helleno_egypt_restored_flag
+		NOT = {
+			has_country_flag = egy_khemia_kingdom_restored_flag
+		}
+	}
+	modifiers = {
+		num_accepted_cultures = 2
+		monarch_diplomatic_power = 2
+		global_unrest = -2
+		promote_culture_cost = -0.33
+		burghers_loyalty_modifier = 0.1
+		governing_capacity_modifier = 0.2
+	}
+	ai = {
+		factor = 0.5 #generic
+	}
+}
+
+aigyptos_monarchy_reform = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "foi_helleno_egyptian_monarchy_icon"
+	potential = {
+		tag = AGY
+	}
+	modifiers = {
+		num_accepted_cultures = 2
+		monarch_diplomatic_power = 2
+		global_unrest = -2
+		production_efficiency = 0.1
+		governing_capacity = 150
+	}
+	ai = {
+		factor = 0.5 #generic
+	}
+}
+
+mizraim_government = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "mamluk_government"
+	potential = {
+		religion = nestorian
+		OR = {
+			AND = {
+				tag = MAM #you can change this to something different
+				NOT = { map_setup = map_setup_random }
+			}
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = mizraim_government
+			}
+		}
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 20
+	nation_designer_trigger = {
+		religion = nestorian
+		primary_culture = azerbaijani
+	}
+	maintain_dynasty = yes
+	modifiers = {
+		global_manpower_modifier = 0.1
+		global_tax_modifier = 0.1
+		max_absolutism = 5
+		governing_capacity = 150
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+
+	conditional = {
+		allow = { has_dlc = "Mandate of Heaven" }
+		allow_banners = yes
+	}
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		has_harem = yes
+	}
+}
+
+############################################
+######Chinese Reforms#######################
+############################################
+celestial_empire_foi = {
+	icon = "celestial_empire"
+	legacy_equivalent = celestial_empire_foi_legacy
+	allow_normal_conversion = no
+    potential = {
+        capital_scope = { superregion = china_superregion }
+		has_country_flag = foi_emperor_of_china
+    }
+	maintain_dynasty = yes
+	allow_force_tributary = no
+	#valid_for_nation_designer = yes
+	#nation_designer_cost = 500
+	lock_level_when_selected = yes
+	#nation_designer_trigger = {
+	#	culture_group = east_asian
+	#	technology_group = chinese
+	#	capital_scope = {
+	#		OR = {
+	#			region = north_china_region
+	#			region = xinan_region
+	#			region = south_china_region
+	#		}
+	#	}
+	#}
+
+	factions = {
+		temples
+		enuchs
+		bureaucrats
+	}
+
+	fixed_rank = 3
+	start_territory_to_estates = 0.9
+
+	modifiers = {
+		church_influence_modifier = -0.1
+		nobles_influence_modifier = -0.1
+		burghers_influence_modifier = -0.1
+		diplomatic_reputation = 2
+		diplomatic_upkeep = -1
+		legitimacy = 1
+		governing_capacity = 500
+	}
+
+	claim_states = yes
+
+	custom_attributes = {
+		locked_government_type = yes
+		has_unify_china_cb = yes
+	}
+
+	conditional = {
+		allow = { has_dlc = "Mandate of Heaven" }
+		has_meritocracy = yes
+	}
+
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
+warlord_state = {
+	icon = "foi_warring_state_icon"
+	legacy_equivalent = warlord_state_legacy
+	allow_normal_conversion = no
+	lock_level_when_selected = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	nation_designer_trigger = {
+		culture_group = east_asian
+		technology_group = chinese
+    	capital_scope = { 
+			OR = {
+				superregion = china_superregion 
+				area = liaoning_area
+			}
+		}
+	}
+    potential = {
+        capital_scope = { 
+			OR = {
+				superregion = china_superregion 
+				area = liaoning_area
+			}
+		}
+    }
+
+	fixed_rank = 2
+	start_territory_to_estates = 0.1
+
+	modifiers = {
+		diplomatic_reputation = -2
+		diplomatic_upkeep = -2
+		army_tradition_decay = -0.01
+	}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+}
+
+warlord_republic = {
+	icon = "foi_warring_republic_icon"
+	legacy_equivalent = warlord_republic_legacy
+	allow_normal_conversion = no
+    potential = {
+        capital_scope = { 
+			OR = {
+				superregion = china_superregion 
+				area = liaoning_area
+			}
+		}
+    }
+	lock_level_when_selected = yes
+	duration = 10
+	valid_for_nation_designer = yes
+	nation_designer_trigger = {
+		culture_group = east_asian
+		technology_group = chinese
+		capital_scope = {
+			OR = {
+				region = north_china_region
+				region = xinan_region
+				region = south_china_region
+			}
+		}
+	}
+
+	fixed_rank = 2
+
+	modifiers = {
+		diplomatic_reputation = -2
+		diplomatic_upkeep = -2
+		army_tradition_decay = -0.01
+	}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+		lottery_election = yes
+	}
+}
+
+############################################
+######Indian Reforms########################
+############################################
+indian_shahdom = {
+    # government mechanics flags go here
+	icon = "foi_indian_shahdom_icon"
+	monarchy = yes
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	valid_for_nation_designer = yes
+	valid_for_new_country = yes
+	nation_designer_cost = 20
+	legacy_equivalent = indian_shahdom_legacy
+	nation_designer_trigger = {
+		religion = manichean
+	}
+	potential = {
+		religion = manichean
+		capital_scope = {
+			superregion = india_superregion
+		}
+	}
+	modifiers = {
+		tolerance_heathen = 3
+		global_missionary_strength = -0.02
+		governing_capacity = 100
+		production_efficiency = 0.1
+	}
+
+	ai = {
+		factor = 0
+	}	
+}
+
+yamag_reform = {
+	icon = "foi_yamag_government_icon"
+	legacy_equivalent = yamag_reform_legacy
+	allow_normal_conversion = no
+	lock_level_when_selected = yes
+	monastic = yes
+	religion = yes
+	fixed_rank = 2
+	allow_convert = no
+	valid_for_new_country = no
+	valid_for_nation_designer = no
+	rulers_can_be_generals = no
+	royal_marriage = no
+	potential = {
+        tag = YMG
+    }
+	modifiers = {
+    	governing_capacity = 50
+		tolerance_own = 1
+		prestige_per_development_from_conversion = 0.33
+		global_autonomy = -0.05
+	}
+	
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	
+	ai = {
+		factor = 0
+	}
+}
+
+foi_bengali_reform_dharmic = { #For Buddhist and Dharmic Bengalis
+	icon = "foi_merchant_ship1_icon"
+	allow_normal_conversion = yes
+	potential = {
+		has_dlc = "Dharma"
+		OR = {
+			religion_group = dharmic
+			religion = buddhism
+			religion = vajrayana
+			religion = mahayana
+		}
+		primary_culture = bengali
+		OR = {
+			561 = {
+				owned_by = ROOT
+			}
+			564 = {
+				owned_by = ROOT
+			}
+			568 = {
+				owned_by = ROOT
+			}
+			4477 = {
+				owned_by = ROOT
+			}
+		}
+	}
+	modifiers = {
+		merchants = 1
+		trade_efficiency = 0.1
+	}
+	ai = {
+		factor = 5
+	}
+}
+
+foi_rajput_tribal_federation = {
+	icon = "foi_rajput_tribal_federation_icon"
+	allow_normal_conversion = yes
+	potential = {
+		has_dlc = "Dharma"
+		OR = {
+			culture_group = western_aryan
+			primary_culture = bagheli
+			primary_culture = bundeli
+		}
+		NOT = { primary_culture = marathi }
+		NOT = { religion = Manichaean }
+		technology_group = indian
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	nation_designer_trigger = {
+		OR = {
+			culture_group = western_aryan
+			primary_culture = bagheli
+			primary_culture = bundeli
+		}
+		NOT = { primary_culture = marathi }
+		NOT = { religion = Manichaean }
+		technology_group = indian
+	}
+	legacy_equivalent = tribal_federation_legacy
+	modifiers = {
+		rajput_exclusive_influence_modifier = 0.15
+		rajput_exclusive_loyalty_modifier = 0.1
+		army_tradition = 0.25
+	}
+}
+
+############################################
+######Persian Reforms#######################
+############################################
+persian_government = {
+	icon = "foi_persian_shahdom_icon"
+	legacy_equivalent = persian_government_legacy
+	allow_normal_conversion = no
+	lock_level_when_selected = yes
+	maintain_dynasty = yes
+	valid_for_new_country = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 25
+	nation_designer_trigger = {
+		OR = {
+			religion_group = zoroastrian_group
+			religion = nestorian
+		}
+	}
+	monarchy = yes
+	potential = {
+        AND = {
+        	tag = PER
+			OR = {
+				religion_group = zoroastrian_group
+				religion = nestorian
+			}
+        }
+    }
+	modifiers = {
+    	governing_capacity = 150
+		num_accepted_cultures = 2
+		legitimacy = 0.5
+		max_absolutism = 5
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+eran_system = {
+	icon = "indian_sultanate"
+	legacy_equivalent = eran_governement_legacy
+	allow_normal_conversion = yes
+	monarchy = yes
+	valid_for_nation_designer = yes
+	valid_for_new_country = yes
+	nation_designer_cost = 20
+	nation_designer_trigger = {
+		culture_group = iranian
+	}
+    potential = {
+        OR = {
+            culture_group = iranian
+            tag = NHR
+        }
+		NOT = { tag = MAM }
+    }
+	modifiers = {
+	governing_capacity = 100
+	production_efficiency = 0.05
+    build_cost = -0.05
+	global_autonomy = -0.025
+	}
+	ai = {
+		factor = 1
+	}	
+}
+
+############################################
+######Slavic Reforms########################
+############################################
+bulgarian_tsardom_reform = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "foi_bulgarian_tsardom_icon"
+	potential = {
+		tag = BUL
+	}
+	modifiers = {
+		land_forcelimit_modifier = 0.25
+		infantry_cost = -0.1
+		global_autonomy = -0.05
+		governing_capacity = 150
+	}
+	ai = {
+		factor = 0.5 #generic
+	}
+}
+
+madzhari_reform = {
+	icon = "black_army_reform"
+	allow_normal_conversion = yes
+	potential = {
+		tag = BUL
+		has_country_flag = madzhari_reform_flag
+		is_revolutionary = no
+	}
+	modifiers = {
+		merc_maintenance_modifier = -0.15
+		mercenary_discipline = 0.025
+		nobles_loyalty_modifier = -0.1
+	}
+	ai = {
+		factor = 3
+	}
+}
+
+unio_trium_nationum_reform = {
+	icon = "foi_unio_trium_nationum_icon"
+	allow_normal_conversion = yes
+	potential = {
+		tag = TRA
+		is_revolutionary = no
+	}
+	lock_level_when_selected = yes
+	
+	factions = {
+		bulgar_nobles
+		magyar_generals
+		saxon_merchants
+	}
+
+	modifiers = {
+		max_absolutism = -25
+		global_tax_modifier = 0.05
+		harsh_treatment_cost = -0.2
+	}
+	ai = {
+		factor = 3
+	}
+}
+
+croatian_grandduchy_reform = {
+	icon = "king"
+	allow_normal_conversion = yes
+	legacy_equivalent = croatian_grandduchy_reform_legacy
+	valid_for_nation_designer = yes
+	potential = {
+		OR = {
+			AND = {
+					is_playing_custom_nation = yes
+					have_had_reform = croatian_grandduchy_reform
+				}
+			AND = {
+				OR = {
+					tag = CRO
+					NOT = { exists = CRO }
+					was_tag = CRO
+				}
+				is_elector = no
+				primary_culture = croatian
+				is_part_of_hre = yes
+			}
+		}
+	}
+	nation_designer_cost = 0
+	modifiers = {
+		diplomats = 1
+		governing_capacity = 200
+		global_autonomy = -0.025
+	}
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
+serbian_grandduchy_reform = {
+	icon = "king"
+	allow_normal_conversion = yes
+	legacy_equivalent = serbian_grandduchy_reform_legacy
+	valid_for_nation_designer = yes
+	potential = {
+		OR = {
+			AND = {
+					is_playing_custom_nation = yes
+					have_had_reform = serbian_grandduchy_reform
+				}
+			AND = {
+				has_country_flag = serbian_grandduchy
+				is_elector = no
+				primary_culture = serbian
+				is_part_of_hre = yes
+			}
+		}
+	}
+	nation_designer_cost = 0
+	modifiers = {
+		diplomats = 1
+		governing_capacity = 200
+		global_autonomy = -0.025
+	}
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
+############################################
+######Generic Reforms#######################
+############################################
+outremer_monarchy_reform = {
+	icon = "holy_state_reform"
+	legacy_equivalent = outremer_monarchy_reform_legacy
+	allow_normal_conversion = no
+	lock_level_when_selected = yes
+	monarchy = yes
+	valid_for_nation_designer = yes
+	valid_for_new_country = yes
+	nation_designer_cost = 100
+	nation_designer_trigger = {
+		OR = {
+			culture_group = french
+			primary_culture = crusene
+		}
+		religion = catholic
+	}
+	potential = {
+		OR = {
+			tag = OUT
+			was_tag = OUT
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = outremer_monarchy_reform
+			}
+		}
+	}
+	modifiers = {
+		tolerance_own = 2
+		tolerance_heretic = -4
+		tolerance_heathen = -2
+		max_absolutism = 10
+		war_exhaustion = -0.03
+		monarch_military_power = 2
+		nobles_loyalty_modifier = 0.1
+		governing_capacity_modifier = -0.25
+	}
+
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		militarised_society = yes
+	}
+	ai = {
+		factor = 0
+	}	
+}
+
+iberian_plutocratic_reform = {
+	icon = "merchant_ship"
+	allow_normal_conversion = yes
+	legacy_equivalent = despotic_monarchy
+	potential = {
+		OR = {
+			culture_group = iberian
+		}
+	}
+	nation_designer_trigger = {
+		OR = {
+			culture_group = iberian
+		}
+	}
+	legacy_equivalent = iberian_plutocratic_reform_legacy
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	modifiers = {
+		merchants = 1
+		nobles_influence_modifier = -0.05
+		burghers_influence_modifier = 0.05
+		vaisyas_influence_modifier = 0.05
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+		allow_draft_transport_ships = yes
+	}
+	boost_income = yes
+	ai = {
+		factor = 0.75 #generic
+	}
+}
+
+monastic_buddhist_reform = {
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	icon = "monks"
+	allow_normal_conversion = yes
+	legacy_equivalent = monastic_buddhist_government
+	monastic = yes
+	fixed_rank = 1
+	potential = {
+        OR = {
+			religion = vajrayana
+			religion = buddhism
+			religion = mahayana
+			religion = nestorian
+		}
+    }
+	modifiers = {
+		tolerance_own = 1
+		tolerance_heathen = -1
+		fort_maintenance_modifier = -0.1
+		land_morale = 0.05
+	}
+}
+
+dynastyic_reform_foi = {
+	icon = "noble_muslim"
+	legacy_equivalent = dynastyic_reform_foi_legacy
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			technology_group = indian
+			technology_group = muslim
+			technology_group = chinese
+			technology_group = east_african
+			technology_group = egyptian_tech_group
+			technology_group = levantine_tech_group
+			technology_group = persian_tech_group
+		}
+		NOT = { tag = MAM }
+		NOT = { tag = AGY }
+	}
+	maintain_dynasty = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	nation_designer_trigger = {
+		OR = {
+			technology_group = indian
+			technology_group = muslim
+			technology_group = chinese
+			technology_group = east_african
+			technology_group = egyptian_tech_group
+			technology_group = levantine_tech_group
+			technology_group = persian_tech_group
+		}
+	}
+
+	modifiers = {
+		legitimacy = 0.5
+		max_absolutism = 5
+	}
+	
+	ai = {
+		factor = 0
+	}
+}
