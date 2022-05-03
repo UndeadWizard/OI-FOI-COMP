@@ -1,0 +1,22 @@
+bookmark = {
+	name = "CHINA_BOOKMARK"
+	desc = "CHINA_BOOKMARK_DESC"
+	date = 1444.11.11
+
+	center = 1821
+
+	country = YUA
+	country = MNG
+	country = YUE
+	country = QIN
+	country = WUU
+	country = JIN
+	country = MIN
+	country = SHU
+	country = MGL
+	
+	easy_country = YUA
+	easy_country = MNG
+	easy_country = YUE
+	easy_country = MGL
+}

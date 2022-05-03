@@ -1,0 +1,18 @@
+bookmark = {
+	name = "INDIA_BOOKMARK"
+	desc = "INDIA_BOOKMARK_DESC"
+	date = 1444.11.11
+
+	center = 2092
+
+	country = DLH
+	country = TAM
+	country = GUJ
+	country = JNP
+	country = PLD
+	country = RMI
+	
+	easy_country = DLH
+	easy_country = GUJ
+	easy_country = TAM
+}

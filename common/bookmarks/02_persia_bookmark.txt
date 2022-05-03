@@ -1,0 +1,21 @@
+bookmark = {
+	name = "PERSIA_BOOKMARK"
+	desc = "PERSIA_BOOKMARK_DESC"
+	date = 1444.11.11	
+	
+	center = 410
+	
+	country = PER
+	country = TAB
+	country = KHI
+	country = KRT
+	country = QAR
+	country = JLR
+	country = AKK
+	country = EGY
+	country = GHA
+	country = QUR
+
+	easy_country = PER
+	easy_country = AKK
+}

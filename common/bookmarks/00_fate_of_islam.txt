@@ -1,0 +1,24 @@
+bookmark = {
+	name = "FATE_OF_ISLAM"
+	desc = "FATE_OF_ISLAM_DESC"
+	date = 1444.11.11
+	
+	center = 112
+	default = yes
+	
+	country = LUS
+	country = BYZ
+	country = PER
+	country = MNG
+	country = QUR
+	country = EGY
+	country = YUA
+	country = TAM
+	country = DLH
+	country = TOU
+	
+	easy_country = BYZ
+	easy_country = LUS
+	easy_country = PER
+	easy_country = MNG
+}
